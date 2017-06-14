@@ -1,14 +1,14 @@
 pub struct SuffixTreeNode {
-    children: Vec<SuffixTreeNode>,
-    index: Option<i32>,
-    terminal: bool,
-    value: String
+    pub children: Vec<SuffixTreeNode>,
+    pub index: Option<i32>,
+    pub terminal: bool,
+    pub value: String,
 }
 
 pub struct SuffixTreeNodeBuilder {
     index: Option<i32>,
     terminal: bool,
-    value: String
+    value: String,
 }
 
 impl SuffixTreeNodeBuilder {
@@ -16,7 +16,7 @@ impl SuffixTreeNodeBuilder {
         SuffixTreeNodeBuilder {
             index: None,
             terminal: false,
-            value: String::from("")
+            value: String::from(""),
         }
     }
 
@@ -40,7 +40,7 @@ impl SuffixTreeNodeBuilder {
             children: Vec::new(),
             index: self.index,
             terminal: self.terminal,
-            value: self.value
+            value: self.value,
         }
     }
 }
@@ -75,7 +75,7 @@ impl SuffixTreeNode {
 
             if self.children.len() == 0 {
                 self.add_child(i as i32, suffix.clone());
-                continue
+                continue;
             }
 
             let mut add_child = true;
