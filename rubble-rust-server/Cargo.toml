@@ -1,0 +1,14 @@
+[package]
+name = "rubble_server"
+version = "0.1.0"
+authors = ["gngeorgiev <gngeorgiev.it@gmail.com>"]
+
+[lib]
+name = "suffix_tree"
+path = "src/suffix_tree/mod.rs"
+
+[[bin]]
+name = "main"
+path = "src/bin/main.rs"
+
+[dependencies]
