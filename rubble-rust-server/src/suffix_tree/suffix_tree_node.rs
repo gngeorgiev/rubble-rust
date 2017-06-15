@@ -1,3 +1,5 @@
+use std::fmt;
+
 pub struct SuffixTreeNode {
     pub children: Vec<SuffixTreeNode>,
     pub index: Option<i32>,
@@ -78,17 +80,38 @@ impl SuffixTreeNode {
                 continue;
             }
 
-            let mut add_child = true;
-            for child in &mut self.children {
-                if suffix.as_str().starts_with(child.value.as_str()) {
+            let res = match self.children.iter_mut().find(|child| {
+                suffix.as_str().starts_with(child.value.as_str())
+            }) {
+                Some(child) => {
                     child.build(suffix.clone());
-                    add_child = false;
+                    Some(())
                 }
-            }
+                None => None,
+            };
 
-            if add_child {
+            if res.is_none() {
                 self.add_child(i as i32, suffix.clone());
             }
         }
+    }
+}
+
+impl fmt::Display for SuffixTreeNode {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let mut terminal_symbol: &str;
+        if self.terminal {
+            terminal_symbol = "$"
+        } else {
+            terminal_symbol = ""
+        }
+
+        write!(
+            f,
+            "{} {} {}",
+            self.value,
+            self.index.unwrap(),
+            terminal_symbol
+        )
     }
 }

@@ -18,21 +18,21 @@ impl SuffixTree {
 
 impl fmt::Display for SuffixTree {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let iterate = |node: &SuffixTreeNode| {
-            let mut str = String::new();
-            for child in &node.children {
-                str.push_str(" - ");
-                str.push_str(child.value.as_str());
-            }
-
-            str.push_str("\r\n");
-            write!(f, "{}", str);
-            for child in &node.children {
-                iterate(&child);
-            }
-        };
-
-        iterate(&self.root);
+//        let iterate = |node: &SuffixTreeNode| {
+//            let mut str = String::new();
+//            for child in &node.children {
+//                str.push_str(" - ");
+//                str.push_str(child.value.as_str());
+//            }
+//
+//            str.push_str("\r\n");
+//            write!(f, "{}", str);
+//            for child in &node.children {
+//                iterate(&child);
+//            }
+//        };
+//
+//        iterate(&self.root);
         Ok(())
     }
 }

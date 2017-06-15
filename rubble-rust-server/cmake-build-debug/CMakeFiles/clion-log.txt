@@ -1,1 +1,1 @@
-CMakeLists.txt not found in /home/gngeorgiev/projects/rubble-rust/rubble-rust-server
+CMakeLists.txt not found in /home/gngeorgiev@bedford.progress.com/stuff/rubble-rust/rubble-rust-server
